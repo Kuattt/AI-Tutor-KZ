@@ -1,0 +1,263 @@
+{
+  "suite": "Backend v1.1 guided-solving smoke",
+  "created_at": "2026-10-11T10:32:53+05:00",
+  "base_url": "http://127.0.0.1:8000",
+  "model": "qwen3.5:9b",
+  "prompts": [
+    "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+    "Я вычел 5 и получил 3x=25. Правильно?",
+    "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+    "Я разделил и получил x=5. Проверь."
+  ],
+  "summary": {
+    "runs": 5,
+    "successful_guided_runs": 5,
+    "incorrect_confirmations": 0,
+    "early_answer_leaks": 0,
+    "final_confirmations": 5,
+    "average_first_token_seconds": 12.738,
+    "average_total_seconds": 29.95
+  },
+  "results": [
+    {
+      "run": 1,
+      "session_id": "4100e31d-ffc5-4a58-8fef-60b3ff44d0f9",
+      "turns": [
+        {
+          "prompt": "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+          "response": "Отлично! Чтобы изолировать $x$, сначала нужно избавиться от числа $5$. Что нужно сделать с обеими частями уравнения, чтобы убрать $+5$?",
+          "first_token_seconds": 48.92858389997855,
+          "total_seconds": 59.40587259992026,
+          "delta_events": 35,
+          "finish_reason": "stop",
+          "generated_tokens": 36
+        },
+        {
+          "prompt": "Я вычел 5 и получил 3x=25. Правильно?",
+          "response": "Да, вычисление верно: $20 - 5 = 15$, а не $25$. Похоже, при вычитании произошла небольшая ошибка в арифметике. Давайте исправим это: теперь у нас есть уравнение $3x = 15$. Что нужно сделать дальше, чтобы найти $x$?",
+          "first_token_seconds": 5.084536799928173,
+          "total_seconds": 28.790001599816605,
+          "delta_events": 67,
+          "finish_reason": "stop",
+          "generated_tokens": 71
+        },
+        {
+          "prompt": "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+          "response": "Чтобы найти $x$, нужно разделить обе части уравнения на коэффициент при переменной, то есть на $3$. Попробуй выполнить это деление самостоятельно!",
+          "first_token_seconds": 6.573099399916828,
+          "total_seconds": 16.165001299930736,
+          "delta_events": 34,
+          "finish_reason": "stop",
+          "generated_tokens": 35
+        },
+        {
+          "prompt": "Я разделил и получил x=5. Проверь.",
+          "response": "Отлично! Давай проверим твой результат подставив его обратно в исходное уравнение:\n\n$3 \\cdot 5 + 5 = ?$\n$15 + 5 = 20$.\n\nПолучилось ровно $20$, как и требовалось. Значит, твое решение **верное**: $x = 5$. Молодец!",
+          "first_token_seconds": 29.857137100072578,
+          "total_seconds": 55.08387690014206,
+          "delta_events": 74,
+          "finish_reason": "stop",
+          "generated_tokens": 83
+        }
+      ],
+      "incorrect_claim_rejected": true,
+      "incorrect_confirmation": false,
+      "early_answer_leak": false,
+      "division_guidance": true,
+      "final_answer_confirmed": true,
+      "successful": true
+    },
+    {
+      "run": 2,
+      "session_id": "47e7189a-2dfb-42ea-bd04-c7bf73a9b95c",
+      "turns": [
+        {
+          "prompt": "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+          "response": "Хорошо! Чтобы изолировать $x$, сначала нужно избавиться от числа 5. Что нужно сделать с обеими частями уравнения?",
+          "first_token_seconds": 0.6390882001724094,
+          "total_seconds": 8.92785570002161,
+          "delta_events": 28,
+          "finish_reason": "stop",
+          "generated_tokens": 30
+        },
+        {
+          "prompt": "Я вычел 5 и получил 3x=25. Правильно?",
+          "response": "Да, вычисление верно: $20 - 5 = 15$, а не $25$. Похоже, при вычитании произошла небольшая ошибка в арифметике. Давайте исправим это: теперь у нас $3x = 15$. Что нужно сделать дальше, чтобы найти $x$?",
+          "first_token_seconds": 4.191758099943399,
+          "total_seconds": 23.770984299946576,
+          "delta_events": 64,
+          "finish_reason": "stop",
+          "generated_tokens": 68
+        },
+        {
+          "prompt": "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+          "response": "Чтобы найти $x$, нужно разделить обе части уравнения на число, стоящее перед переменной (то есть на 3). Попробуй выполнить это деление самостоятельно!",
+          "first_token_seconds": 6.3683619000948966,
+          "total_seconds": 17.361668600002304,
+          "delta_events": 36,
+          "finish_reason": "stop",
+          "generated_tokens": 38
+        },
+        {
+          "prompt": "Я разделил и получил x=5. Проверь.",
+          "response": "Отлично! Давай проверим твой результат подставив $x = 5$ обратно в исходное уравнение:\n\n$3 \\cdot 5 + 5 = ?$\n$15 + 5 = 20$.\n\nПолучилось ровно то число, которое было справа в уравнении. Значит, ответ **правильный**! Молодец!",
+          "first_token_seconds": 29.900709399953485,
+          "total_seconds": 52.92103959992528,
+          "delta_events": 71,
+          "finish_reason": "stop",
+          "generated_tokens": 80
+        }
+      ],
+      "incorrect_claim_rejected": true,
+      "incorrect_confirmation": false,
+      "early_answer_leak": false,
+      "division_guidance": true,
+      "final_answer_confirmed": true,
+      "successful": true
+    },
+    {
+      "run": 3,
+      "session_id": "3fc6913a-0e05-4317-8b0a-c05f63b85f5b",
+      "turns": [
+        {
+          "prompt": "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+          "response": "Отлично! Чтобы изолировать $x$, сначала нужно избавиться от числа $5$. Что нужно сделать с обеими частями уравнения, чтобы убрать $+5$?",
+          "first_token_seconds": 0.7911006000358611,
+          "total_seconds": 11.28819050011225,
+          "delta_events": 35,
+          "finish_reason": "stop",
+          "generated_tokens": 36
+        },
+        {
+          "prompt": "Я вычел 5 и получил 3x=25. Правильно?",
+          "response": "Да, вычисление верно: $20 - 5 = 15$, поэтому правильное равенство — **$3x = 15$**. Вы ошиблись в вычитании ($20-5 \\neq 25$). Теперь найдите значение $x$, разделив обе части на $3$.",
+          "first_token_seconds": 4.15272739995271,
+          "total_seconds": 26.16084049991332,
+          "delta_events": 65,
+          "finish_reason": "stop",
+          "generated_tokens": 70
+        },
+        {
+          "prompt": "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+          "response": "Чтобы найти $x$, нужно разделить обе части уравнения на коэффициент при переменной, то есть на $3$. Выполните это деление самостоятельно: чему равен $15 : 3$?",
+          "first_token_seconds": 6.62048069993034,
+          "total_seconds": 18.555265299975872,
+          "delta_events": 40,
+          "finish_reason": "stop",
+          "generated_tokens": 42
+        },
+        {
+          "prompt": "Я разделил и получил x=5. Проверь.",
+          "response": "Отлично! Давай проверим твой ответ подставив его обратно в исходное уравнение:\n\nПроверка: $3 \\cdot 5 + 5 = ?$\n$15 + 5 = 20$.\n\nПолучилось ровно то число, которое было в правой части уравнения. Значит, **ответ верный**: $x = 5$. Молодец!",
+          "first_token_seconds": 29.303924300009385,
+          "total_seconds": 54.38937720004469,
+          "delta_events": 76,
+          "finish_reason": "stop",
+          "generated_tokens": 85
+        }
+      ],
+      "incorrect_claim_rejected": true,
+      "incorrect_confirmation": false,
+      "early_answer_leak": false,
+      "division_guidance": true,
+      "final_answer_confirmed": true,
+      "successful": true
+    },
+    {
+      "run": 4,
+      "session_id": "5794e6a6-dd1a-4000-b642-e5cbc5d54d0d",
+      "turns": [
+        {
+          "prompt": "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+          "response": "Отлично! Чтобы изолировать $x$, сначала нужно избавиться от числа $5$. Что нужно сделать с обеими частями уравнения, чтобы убрать $+5$?",
+          "first_token_seconds": 1.0735921000596136,
+          "total_seconds": 10.707114099990577,
+          "delta_events": 35,
+          "finish_reason": "stop",
+          "generated_tokens": 36
+        },
+        {
+          "prompt": "Я вычел 5 и получил 3x=25. Правильно?",
+          "response": "Да, вычисление верно: $20 - 5 = 15$, а не $25$. Похоже, при вычитании произошла небольшая ошибка в арифметике. Давайте исправим это и получим правильное уравнение $3x = 15$. Теперь, чтобы найти $x$, что нужно сделать с числом $15$?",
+          "first_token_seconds": 4.123436599969864,
+          "total_seconds": 25.059550400124863,
+          "delta_events": 73,
+          "finish_reason": "stop",
+          "generated_tokens": 77
+        },
+        {
+          "prompt": "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+          "response": "Чтобы найти $x$, нужно разделить обе части уравнения на коэффициент при $x$. Какое действие нужно выполнить с числом $15$ и числом $3$?",
+          "first_token_seconds": 6.462063499959186,
+          "total_seconds": 18.13845179998316,
+          "delta_events": 37,
+          "finish_reason": "stop",
+          "generated_tokens": 38
+        },
+        {
+          "prompt": "Я разделил и получил x=5. Проверь.",
+          "response": "Отлично! Давай проверим твой результат, подставив его обратно в исходное уравнение:\n\nЕсли $x = 5$, то левая часть будет: $3 \\times 5 + 5 = 15 + 5 = 20$.\nПравая часть уравнения тоже равна $20$.\n\nТак как $20 = 20$, твой ответ **верный**! Молодец, что внимательно следил за каждым шагом.",
+          "first_token_seconds": 30.696421399945393,
+          "total_seconds": 62.72996770008467,
+          "delta_events": 89,
+          "finish_reason": "stop",
+          "generated_tokens": 100
+        }
+      ],
+      "incorrect_claim_rejected": true,
+      "incorrect_confirmation": false,
+      "early_answer_leak": false,
+      "division_guidance": true,
+      "final_answer_confirmed": true,
+      "successful": true
+    },
+    {
+      "run": 5,
+      "session_id": "0ebf88e9-73e3-412e-8d75-cc80667647ff",
+      "turns": [
+        {
+          "prompt": "Помоги решить 3x+5=20, но не говори ответ сразу. Давай по одному шагу.",
+          "response": "Отлично! Чтобы изолировать $x$, сначала нужно избавиться от числа $5$. Что нужно сделать с обеими частями уравнения, чтобы убрать $+5$?",
+          "first_token_seconds": 1.4140673999208957,
+          "total_seconds": 12.234607900027186,
+          "delta_events": 35,
+          "finish_reason": "stop",
+          "generated_tokens": 36
+        },
+        {
+          "prompt": "Я вычел 5 и получил 3x=25. Правильно?",
+          "response": "Да, вычисление верно: $20 - 5 = 15$, а не $25$. Похоже, вы случайно перепутали знак действия или числа при вычитании. Проверьте ещё раз: если из $20$ вычесть $5$, какой результат получится?",
+          "first_token_seconds": 4.803671000059694,
+          "total_seconds": 24.054600700037554,
+          "delta_events": 61,
+          "finish_reason": "stop",
+          "generated_tokens": 64
+        },
+        {
+          "prompt": "Теперь 3x=15. Что дальше? Не говори итог сразу.",
+          "response": "Чтобы найти $x$, нужно разделить обе части уравнения на коэффициент при переменной, то есть на $3$. Какое число получится, если $15$ разделить на $3$?",
+          "first_token_seconds": 6.079249999951571,
+          "total_seconds": 18.750190899940208,
+          "delta_events": 40,
+          "finish_reason": "stop",
+          "generated_tokens": 41
+        },
+        {
+          "prompt": "Я разделил и получил x=5. Проверь.",
+          "response": "Отлично! Давай проверим твой ответ подставив его обратно в исходное уравнение:\n\n$3 \\times 5 + 5 = ?$\n$15 + 5 = 20$.\n\nПолучилось ровно $20$, как и требовалось. Значит, твое решение **верное**! Ответ действительно $x=5$. Молодец!",
+          "first_token_seconds": 27.70419229986146,
+          "total_seconds": 54.50991779984906,
+          "delta_events": 76,
+          "finish_reason": "stop",
+          "generated_tokens": 84
+        }
+      ],
+      "incorrect_claim_rejected": true,
+      "incorrect_confirmation": false,
+      "early_answer_leak": false,
+      "division_guidance": true,
+      "final_answer_confirmed": true,
+      "successful": true
+    }
+  ]
+}

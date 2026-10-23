@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12",
+  "environment": {
+    "expo": "57.0.27",
+    "react_native": "0.86.3",
+    "android_avd": "Medium Phone API 35",
+    "api_base_url": "http://10.0.2.2:8000",
+    "backend_model": "qwen3.5:9b"
+  },
+  "session_id": "2d860b5e-868b-4ca2-a828-d75b3b904f1d",
+  "turns": [
+    {
+      "prompt": "Hello. Explain acceleration very briefly.",
+      "first_delta_ms": 54007,
+      "total_ms": 96473,
+      "completed": true
+    },
+    {
+      "prompt": "What example can you give from everyday life?",
+      "first_delta_ms": 20047,
+      "total_ms": 48619,
+      "completed": true,
+      "context_retained": true
+    },
+    {
+      "prompt": "Now explain it in much more detail.",
+      "first_delta_ms": 13130,
+      "completed": false,
+      "cancelled_by_user": true,
+      "partial_text_preserved": true
+    },
+    {
+      "prompt": "What topic were we discussing before?",
+      "first_delta_ms": 14967,
+      "total_ms": 45453,
+      "completed": true,
+      "post_cancel_request": true,
+      "context_retained": true
+    }
+  ],
+  "backend_metrics_after_test": {
+    "total_generations": 4,
+    "successful": 3,
+    "failed": 0,
+    "cancelled": 1,
+    "active": 0
+  }
+}
